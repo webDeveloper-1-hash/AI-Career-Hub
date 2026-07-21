@@ -1,0 +1,198 @@
+/* ==============================
+   AI Career Hub - Jobs Page
+   jobs.css
+================================ */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f5f7fa;
+}
+
+/* Navbar */
+
+.navbar{
+    padding:15px 0;
+}
+
+.navbar-brand{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.nav-link{
+    font-size:17px;
+    margin-left:15px;
+    transition:0.3s;
+}
+
+.nav-link:hover{
+    color:#ffc107 !important;
+}
+
+/* Hero Section */
+
+.hero{
+    background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+    url("https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1600");
+    background-size:cover;
+    background-position:center;
+    height:350px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:#fff;
+}
+
+.hero h1{
+    font-size:52px;
+    font-weight:bold;
+}
+
+.hero p{
+    font-size:20px;
+    margin-top:15px;
+}
+
+/* Search Section */
+
+.container input,
+.container select{
+    height:50px;
+}
+
+.container button{
+    height:50px;
+}
+
+/* Job Cards */
+
+.job-card{
+    transition:.3s;
+}
+
+.card{
+    border:none;
+    border-radius:15px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,0,0,.2);
+}
+
+.card-body{
+    padding:25px;
+}
+
+.card h4{
+    color:#0d6efd;
+    font-weight:bold;
+}
+
+.card p{
+    color:#555;
+    margin:8px 0;
+}
+
+.badge{
+    font-size:14px;
+    padding:8px 15px;
+}
+
+/* Buttons */
+
+.btn-primary{
+    border-radius:30px;
+    transition:.3s;
+}
+
+.btn-primary:hover{
+    transform:scale(1.05);
+}
+
+/* Footer */
+
+footer{
+    margin-top:60px;
+    padding:25px;
+    background:#212529;
+    color:white;
+    text-align:center;
+}
+
+/* Responsive */
+
+@media(max-width:992px){
+
+.hero h1{
+    font-size:40px;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+}
+
+@media(max-width:768px){
+
+.hero{
+    height:280px;
+}
+
+.hero h1{
+    font-size:32px;
+}
+
+.hero p{
+    font-size:16px;
+}
+
+.navbar-brand{
+    font-size:22px;
+}
+
+.card{
+    margin-bottom:20px;
+}
+
+}
+
+@media(max-width:576px){
+
+.hero{
+    height:250px;
+}
+
+.hero h1{
+    font-size:28px;
+}
+
+.hero p{
+    font-size:15px;
+}
+
+.container input,
+.container select,
+.container button{
+    margin-bottom:10px;
+}
+
+.card-body{
+    padding:20px;
+}
+
+.card h4{
+    font-size:22px;
+}
+
+}
