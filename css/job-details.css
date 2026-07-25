@@ -1,0 +1,245 @@
+/* =====================================
+   AI Career Hub - Job Details Page
+===================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f4f7fc;
+    color:#333;
+}
+
+/* Navbar */
+
+.navbar{
+    padding:15px 0;
+}
+
+.navbar-brand{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.nav-link{
+    margin-left:15px;
+    transition:.3s;
+}
+
+.nav-link:hover{
+    color:#ffc107 !important;
+}
+
+/* Hero */
+
+.hero{
+    background:linear-gradient(135deg,#0d6efd,#5a9cff);
+    color:#fff;
+    text-align:center;
+    padding:80px 20px;
+}
+
+.hero h1{
+    font-size:48px;
+    font-weight:bold;
+}
+
+.hero p{
+    font-size:20px;
+    margin-top:10px;
+}
+
+/* Main Card */
+
+.card{
+    border:none;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+}
+
+/* Headings */
+
+h2,h3,h4{
+    color:#0d6efd;
+    margin-bottom:15px;
+}
+
+/* Lists */
+
+ul{
+    padding-left:20px;
+}
+
+ul li{
+    margin-bottom:10px;
+    line-height:1.6;
+}
+
+/* Job Information */
+
+.bg-light{
+    border-radius:12px;
+}
+
+.bg-light p{
+    margin-bottom:12px;
+    font-size:16px;
+}
+
+/* Buttons */
+
+.btn-success{
+
+    padding:12px;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.btn-success:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 8px 18px rgba(25,135,84,.3);
+
+}
+
+.btn-outline-primary{
+
+    padding:12px;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.btn-outline-primary:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* Footer */
+
+footer{
+
+    margin-top:50px;
+
+    font-size:16px;
+
+}
+
+/* Dark Mode */
+
+.dark-mode{
+
+    background:#121212;
+
+    color:#fff;
+
+}
+
+.dark-mode .card{
+
+    background:#1e1e1e;
+
+    color:#fff;
+
+}
+
+.dark-mode .bg-light{
+
+    background:#2c2c2c !important;
+
+    color:#fff;
+
+}
+
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4{
+
+    color:#4da3ff;
+
+}
+
+/* Responsive */
+
+@media(max-width:992px){
+
+.hero h1{
+
+font-size:38px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.hero{
+
+padding:60px 15px;
+
+}
+
+.hero h1{
+
+font-size:32px;
+
+}
+
+.hero p{
+
+font-size:18px;
+
+}
+
+.card{
+
+margin-bottom:25px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.navbar-brand{
+
+font-size:22px;
+
+}
+
+.hero h1{
+
+font-size:28px;
+
+}
+
+.hero p{
+
+font-size:16px;
+
+}
+
+.btn{
+
+font-size:15px;
+
+padding:10px;
+
+}
+
+}
