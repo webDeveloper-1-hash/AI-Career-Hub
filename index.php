@@ -23,11 +23,11 @@
         <div class="collapse navbar-collapse" id="menu">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="jobs.html">Jobs</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Companies</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="job-details.html">Jobs Details</a></li>
+                <li class="nav-item"><a class="nav-link" href="jobs.php">Jobs</a></li>
+                <!-- <li class="nav-item"><a class="nav-link" href="#">Companies</a></li> -->
+                <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="job-details.php">Jobs Details</a></li>
             </ul>
         </div>
     </div>
