@@ -20,14 +20,26 @@
 </head>
 
 <body>
+<?php
+session_start();
 
+if(isset($_SESSION['success'])){
+    echo "<div class='alert alert-success'>".$_SESSION['success']."</div>";
+    unset($_SESSION['success']);
+}
+
+if(isset($_SESSION['error'])){
+    echo "<div class='alert alert-danger'>".$_SESSION['error']."</div>";
+    unset($_SESSION['error']);
+}
+?>
     <!-- Navbar -->
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 
         <div class="container">
 
-            <a class="navbar-brand fw-bold" href="index.html">
+            <a class="navbar-brand fw-bold" href="index.php">
                 AI Career Hub
             </a>
 
@@ -89,17 +101,16 @@
                             Create Account
                         </h2>
 
-                        <form id="registerForm" onsubmit="registerUser(event)">
-
+                    <form action="auth/register_process.php" method="POST" id="registerForm">
                             <div class="mb-3">
 
-                                <label class="form-label">Full Name</label>
-
-                                <input
+                                
+                              <input
                                     type="text"
                                     id="fullname"
+                                    name="fullname"
                                     class="form-control"
-                                    placeholder="Enter your full name">
+                                    required> 
 
                             </div>
 
@@ -122,10 +133,11 @@
                                 <div class="input-group">
 
                                     <input
-                                        type="password"
-                                        id="password"
-                                        class="form-control"
-                                        placeholder="Enter password">
+                                            type="password"
+                                            id="password"
+                                            name="password"
+                                            class="form-control"
+                                            required>
 
                                     <button
                                         type="button"
@@ -194,7 +206,7 @@
 
                             Already have an account?
 
-                            <a href="login.html">
+                            <a href="login.php">
 
                                 Login Here
 

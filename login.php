@@ -1,160 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | AI Career Hub</title>
 
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- CSS -->
     <link rel="stylesheet" href="css/login.css">
 </head>
-
 <body>
 
-    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand fw-bold" href="index.php">
+            AI Career Hub
+        </a>
 
-        <div class="container">
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <a class="navbar-brand fw-bold" href="index.php">
-                AI Career Hub
-            </a>
+        <div class="collapse navbar-collapse" id="menu">
 
-            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            <ul class="navbar-nav ms-auto">
 
-                <span class="navbar-toggler-icon"></span>
+                <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="jobs.php">Jobs</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+                <li class="nav-item"><a class="nav-link active" href="login.php">Login</a></li>
 
-            </button>
-
-            <div class="collapse navbar-collapse" id="menu">
-
-                <ul class="navbar-nav ms-auto">
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php">Home</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="jobs.php">Jobs</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.php">About</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.php">Contact</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" href="login.php">Login</a>
-                    </li>
-
-                </ul>
-
-            </div>
+            </ul>
 
         </div>
 
-    </nav>
+    </div>
+</nav>
 
-    <!-- Login Section -->
+<section class="login-section">
 
-    <section class="login-section">
+    <div class="container">
 
-        <div class="container">
+        <div class="row justify-content-center">
 
-            <div class="row justify-content-center">
+            <div class="col-md-5">
 
-                <div class="col-lg-5">
+                <div class="login-card">
 
-                    <div class="login-card">
+                    <h2 class="text-center mb-4">Login</h2>
 
-                        <h2 class="text-center mb-4">
-                            Login
-                        </h2>
+                    <?php
+                    session_start();
 
-                        <form id="loginForm" onsubmit="loginUser(event)">
+                    if(isset($_SESSION['error'])){
+                        echo '<div class="alert alert-danger">'.$_SESSION['error'].'</div>';
+                        unset($_SESSION['error']);
+                    }
+                    ?>
 
-                            <div class="mb-3">
+                    <form id="loginForm" action="auth/login_process.php" method="POST">
 
-                                <label>Email</label>
+                        <div class="mb-3">
+
+                            <label>Email</label>
+
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                class="form-control"
+                                placeholder="Enter Email"
+                                required>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label>Password</label>
+
+                            <div class="input-group">
 
                                 <input
-                                    type="email"
-                                    id="email"
+                                    type="password"
+                                    name="password"
+                                    id="password"
                                     class="form-control"
-                                    placeholder="Enter Email">
+                                    placeholder="Enter Password"
+                                    required>
+
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-secondary"
+                                    onclick="togglePassword()">
+
+                                    👁
+
+                                </button>
 
                             </div>
 
-                            <div class="mb-3">
+                        </div>
 
-                                <label>Password</label>
+                        <button class="btn btn-primary w-100">
+                            Login
+                        </button>
 
-                                <div class="input-group">
+                    </form>
 
-                                    <input
-                                        type="password"
-                                        id="password"
-                                        class="form-control"
-                                        placeholder="Enter Password">
-
-                                    <button
-                                        class="btn btn-outline-secondary"
-                                        type="button"
-                                        onclick="togglePassword()">
-
-                                        👁
-
-                                    </button>
-
-                                </div>
-
-                            </div>
-
-                            <div class="d-flex justify-content-between mb-3">
-
-                                <div>
-
-                                    <input type="checkbox">
-
-                                    Remember Me
-
-                                </div>
-
-                                <a href="#">
-                                    Forgot Password?
-                                </a>
-
-                            </div>
-
-                            <button class="btn btn-primary w-100">
-
-                                Login
-
-                            </button>
-
-                        </form>
-
-                        <p class="text-center mt-3">
-
-                            Don't have an account?
-
-                            <a href="register.html">
-
-                                Register
-
-                            </a>
-
-                        </p>
-
-                    </div>
+                    <p class="text-center mt-3">
+                        Don't have an account?
+                        <a href="register.php">Register</a>
+                    </p>
 
                 </div>
 
@@ -162,24 +119,16 @@
 
         </div>
 
-    </section>
+    </div>
 
-    <!-- Footer -->
+</section>
 
-    <footer>
+<footer>
+    <p>© 2026 AI Career Hub | All Rights Reserved</p>
+</footer>
 
-        <p>
-
-            © 2026 AI Career Hub | All Rights Reserved
-
-        </p>
-
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script src="js/login.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/login.js"></script>
 
 </body>
-
 </html>
