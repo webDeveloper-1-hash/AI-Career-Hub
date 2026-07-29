@@ -120,9 +120,11 @@ if(isset($_SESSION['error'])){
 
                                 <input
                                     type="email"
+                                    name="email"
                                     id="email"
                                     class="form-control"
-                                    placeholder="Enter your email">
+                                    placeholder="Enter your email"
+                                    required>
 
                             </div>
 

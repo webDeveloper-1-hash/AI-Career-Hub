@@ -9,6 +9,21 @@
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
+    <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (isset($_SESSION['success'])) {
+    echo '<div class="alert alert-success">'.$_SESSION['success'].'</div>';
+    unset($_SESSION['success']);
+}
+
+if (isset($_SESSION['error'])) {
+    echo '<div class="alert alert-danger">'.$_SESSION['error'].'</div>';
+    unset($_SESSION['error']);
+}
+?>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
@@ -21,7 +36,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="menu">
+        <!-- <div class="collapse navbar-collapse" id="menu">
 
             <ul class="navbar-nav ms-auto">
 
@@ -33,7 +48,7 @@
 
             </ul>
 
-        </div>
+        </div> -->
 
     </div>
 </nav>
@@ -50,63 +65,47 @@
 
                     <h2 class="text-center mb-4">Login</h2>
 
-                    <?php
-                    session_start();
-
-                    if(isset($_SESSION['error'])){
-                        echo '<div class="alert alert-danger">'.$_SESSION['error'].'</div>';
-                        unset($_SESSION['error']);
-                    }
-                    ?>
+                   
 
                     <form id="loginForm" action="auth/login_process.php" method="POST">
 
-                        <div class="mb-3">
+    <div class="mb-3">
+        <label>Email</label>
+        <input
+            type="email"
+            name="email"
+            id="email"
+            class="form-control"
+            placeholder="Enter Email"
+            required>
+    </div>
 
-                            <label>Email</label>
+    <div class="mb-3">
+        <label>Password</label>
 
-                            <input
-                                type="email"
-                                name="email"
-                                id="email"
-                                class="form-control"
-                                placeholder="Enter Email"
-                                required>
+        <div class="input-group">
+            <input
+                type="password"
+                name="password"
+                id="password"
+                class="form-control"
+                placeholder="Enter Password"
+                required>
 
-                        </div>
+            <button
+                type="button"
+                class="btn btn-outline-secondary"
+                onclick="togglePassword()">
+                👁
+            </button>
+        </div>
+    </div>
 
-                        <div class="mb-3">
+    <button type="submit" class="btn btn-primary w-100">
+        Login
+    </button>
 
-                            <label>Password</label>
-
-                            <div class="input-group">
-
-                                <input
-                                    type="password"
-                                    name="password"
-                                    id="password"
-                                    class="form-control"
-                                    placeholder="Enter Password"
-                                    required>
-
-                                <button
-                                    type="button"
-                                    class="btn btn-outline-secondary"
-                                    onclick="togglePassword()">
-
-                                    👁
-
-                                </button>
-
-                            </div>
-
-                        </div>
-
-                        <button class="btn btn-primary w-100">
-                            Login
-                        </button>
-
-                    </form>
+</form>
 
                     <p class="text-center mt-3">
                         Don't have an account?
@@ -123,9 +122,9 @@
 
 </section>
 
-<footer>
+<!-- <footer>
     <p>© 2026 AI Career Hub | All Rights Reserved</p>
-</footer>
+</footer> -->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/login.js"></script>

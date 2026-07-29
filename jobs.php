@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Career Hub - Jobs</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/jobs.css">
-</head>
-<body>
+<?php
+include 'include/head.php';
+?>
 
 <!-- Navbar -->
 
@@ -27,7 +19,7 @@
 
         </button>
 
-        <div class="collapse navbar-collapse" id="navbar">
+        <!-- <div class="collapse navbar-collapse" id="navbar">
 
             <ul class="navbar-nav ms-auto">
 
@@ -53,7 +45,7 @@
 
             </ul>
 
-        </div>
+        </div> -->
 
     </div>
 </nav>
@@ -295,5 +287,6 @@ Mobile App Developer -->
 
 <script src="js/jobs.js"></script>
 
-</body>
-</html>
+<?php
+include 'include/footer.php';
+?>
