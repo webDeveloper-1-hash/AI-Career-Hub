@@ -1,8 +1,53 @@
 <?php
-include 'include/head.php';
+include ('include/head.php');
+include('config/connection.php');
 ?>
 
 <!-- Navbar -->
+<?php
+
+
+$sql = "SELECT * FROM jobs ORDER BY created_at DESC";
+$result = mysqli_query($conn, $sql);
+
+if (!$result) {
+    die("Query Error: " . mysqli_error($conn));
+}
+?>
+
+
+
+<?php
+
+$search = $_GET['search'] ?? '';
+$location = $_GET['location'] ?? '';
+
+$sql = "SELECT * FROM jobs WHERE 1=1";
+
+if ($search != '') {
+    $search = mysqli_real_escape_string($conn, $search);
+    $sql .= " AND title LIKE '%$search%'";
+}
+
+if ($location != '') {
+    $location = mysqli_real_escape_string($conn, $location);
+    $sql .= " AND location='$location'";
+}
+
+$sql .= " ORDER BY created_at DESC";
+
+$result = mysqli_query($conn, $sql);
+
+if (!$result) {
+    die("Query Error: " . mysqli_error($conn));
+}
+$category = $_GET['category'] ?? '';
+
+if ($category != '') {
+    $category = mysqli_real_escape_string($conn, $category);
+    $sql .= " AND category='$category'";
+}
+?>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
     <div class="container">
@@ -66,152 +111,82 @@ include 'include/head.php';
 
 <!-- Search -->
 
-<section class="container my-5">
+<form method="GET" action="jobs.php" class="container my-5">
 
-    <div class="row g-3">
+<div class="row g-3">
 
-        <div class="col-md-5">
-
-            <input
+    <div class="col-md-6">
+        <input
             type="text"
+            name="search"
             class="form-control"
-            id="search"
-            placeholder="Search Job">
-
-        </div>
-
-        <div class="col-md-4">
-
-            <select class="form-select" id="location">
-
-                <option value="">All Locations</option>
-
-                <option>Karachi</option>
-
-                <option>Lahore</option>
-
-                <option>Islamabad</option>
-
-                <option>Peshawar</option>
-
-            </select>
-
-        </div>
-
-        <div class="col-md-3">
-
-            <button
-            class="btn btn-primary w-100"
-            onclick="searchJobs()">
-
-            Search
-
-            </button>
-
-        </div>
-
+            placeholder="Search Job"
+            value="<?php echo htmlspecialchars($search); ?>">
     </div>
 
-</section>
+    <div class="col-md-2">
+        <select name="location" class="form-select">
+            <option value="">All Locations</option>
+            <option value="Karachi">Karachi</option>
+            <option value="Lahore">Lahore</option>
+            <option value="Islamabad">Islamabad</option>
+            <option value="Peshawar">Peshawar</option>
+        </select>
+        
+    </div>
+
+    <div class="col-md-2">
+            
+            <select name="category" class="form-select">
+        <option value="">All Categories</option>
+        <option value="IT">IT</option>
+        <option value="Web Development">Web Development</option>
+        <option value="AI">AI</option>
+        <option value="Marketing">Marketing</option>
+    </select>
+        </div>
+
+    <div class="col-md-2">
+        <button type="submit" class="btn btn-primary w-100">
+            Search
+        </button>
+    </div>
+
+</div>
+
+</form>
 
 <!-- Jobs -->
 
 <section class="container">
 
-<div class="row" id="jobContainer">
+<div class="row">
 
-<!-- Job 1 -->
+<?php while($job = mysqli_fetch_assoc($result)) { ?>
 
-<div class="col-lg-4 col-md-6 mb-4 job-card">
-
-<div class="card shadow h-100">
-
-<div class="card-body">
-
-<h4>Frontend Developer</h4>
-
-<p><strong>Company:</strong> Google</p>
-
-<p><strong>Location:</strong> Karachi</p>
-
-<p><strong>Salary:</strong> PKR 150,000</p>
-
-<span class="badge bg-success">Full Time</span>
-
-<br><br>
-
-<button class="btn btn-primary w-100"
-onclick="applyJob('Frontend Developer')">
-
-Apply Now
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- Job 2 -->
-
-<div class="col-lg-4 col-md-6 mb-4 job-card">
+<div class="col-lg-4 col-md-6 mb-4">
 
 <div class="card shadow h-100">
 
 <div class="card-body">
 
-<h4>Backend Developer</h4>
+<h4><?php echo $job['title']; ?></h4>
 
-<p><strong>Company:</strong> Microsoft</p>
+<p><strong>Company:</strong> <?php echo $job['company']; ?></p>
 
-<p><strong>Location:</strong> Lahore</p>
+<p><strong>Location:</strong> <?php echo $job['location']; ?></p>
 
-<p><strong>Salary:</strong> PKR 170,000</p>
+<p><strong>Salary:</strong> <?php echo $job['salary']; ?></p>
 
-<span class="badge bg-warning">Remote</span>
-
-<br><br>
-
-<button class="btn btn-primary w-100"
-onclick="applyJob('Backend Developer')">
-
-Apply Now
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- Job 3 -->
-
-<div class="col-lg-4 col-md-6 mb-4 job-card">
-
-<div class="card shadow h-100">
-
-<div class="card-body">
-
-<h4>AI Engineer</h4>
-
-<p><strong>Company:</strong> OpenAI</p>
-
-<p><strong>Location:</strong> Islamabad</p>
-
-<p><strong>Salary:</strong> PKR 250,000</p>
-
-<span class="badge bg-info">Hybrid</span>
+<span class="badge bg-primary">
+<?php echo $job['job_type']; ?>
+</span>
 
 <br><br>
 
-<button class="btn btn-primary w-100"
-onclick="applyJob('AI Engineer')">
-
-Apply Now
-
-</button>
+<a href="job-details.php?id=<?php echo $job['id']; ?>" class="btn btn-primary">
+    View Details
+</a>
 
 </div>
 
@@ -219,74 +194,8 @@ Apply Now
 
 </div>
 
-<!-- Job 4 -->
-
-<div class="col-lg-4 col-md-6 mb-4 job-card">
-<div class="card shadow h-100">
-<div class="card-body">
-<h4>Java Developer</h4>
-<p><strong>Company:</strong> IBM</p>
-<p><strong>Location:</strong> Peshawar</p>
-<p><strong>Salary:</strong> PKR 140,000</p>
-<span class="badge bg-primary">Full Time</span>
-<br><br>
-<button class="btn btn-primary w-100" onclick="applyJob('Java Developer')">Apply Now</button>
-</div>
-</div>
-</div>
-
-<!-- Job 5 -->
-
-<div class="col-lg-4 col-md-6 mb-4 job-card">
-<div class="card shadow h-100">
-<div class="card-body">
-<h4>React Developer</h4>
-<p><strong>Company:</strong> Meta</p>
-<p><strong>Location:</strong> Karachi</p>
-<p><strong>Salary:</strong> PKR 180,000</p>
-<span class="badge bg-danger">Remote</span>
-<br><br>
-<button class="btn btn-primary w-100" onclick="applyJob('React Developer')">Apply Now</button>
-</div>
-</div>
-</div>
-
-<!-- Job 6 -->
-
-<div class="col-lg-4 col-md-6 mb-4 job-card">
-<div class="card shadow h-100">
-<div class="card-body">
-<h4>PHP Developer</h4>
-<p><strong>Company:</strong> Systems Ltd</p>
-<p><strong>Location:</strong> Lahore</p>
-<p><strong>Salary:</strong> PKR 130,000</p>
-<span class="badge bg-success">Full Time</span>
-<br><br>
-<button class="btn btn-primary w-100" onclick="applyJob('PHP Developer')">Apply Now</button>
-</div>
-</div>
-</div>
-
-<!-- نور 6 Job Cards هم په همدې Pattern سره اضافه کړه:
-UI/UX Designer
-Data Analyst
-WordPress Developer
-Graphic Designer
-Full Stack Developer
-Mobile App Developer -->
+<?php } ?>
 
 </div>
 
 </section>
-
-<footer class="bg-dark text-white text-center p-4 mt-5">
-<p>© 2026 AI Career Hub | All Rights Reserved</p>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-
-<script src="js/jobs.js"></script>
-
-<?php
-include 'include/footer.php';
-?>

@@ -20,7 +20,19 @@
 </head>
 
 <body>
+<?php
+include("config/connection.php");
 
+$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+
+$result = mysqli_query($conn, "SELECT * FROM jobs WHERE id = $id");
+
+if (!$result || mysqli_num_rows($result) == 0) {
+    die("Job not found.");
+}
+
+$job = mysqli_fetch_assoc($result);
+?>
     <!-- Navbar -->
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -45,23 +57,23 @@
                 <ul class="navbar-nav ms-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="index.php">Home</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="jobs.html">Jobs</a>
+                        <a class="nav-link" href="jobs.php">Jobs</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link" href="about.php">About</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" href="contact.php">Contact</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html">Login</a>
+                        <a class="nav-link" href="logout.php">Logout</a>
                     </li>
 
                     <li class="nav-item">
@@ -87,14 +99,12 @@
 
         <div class="container">
 
-            <h1>Frontend Developer</h1>
+            <h1><?php echo htmlspecialchars($job['title']); ?></h1>
 
-            <p>
-
-                Tech Solutions Pvt Ltd • Karachi, Pakistan
-
-            </p>
-
+<p>
+<?php echo htmlspecialchars($job['company']); ?> •
+<?php echo htmlspecialchars($job['location']); ?>
+</p>
         </div>
 
     </section>
@@ -114,13 +124,8 @@
                     <h2>Job Description</h2>
 
                     <p>
-
-                        We are looking for a talented Frontend Developer who has
-                        experience in HTML5, CSS3, Bootstrap 5 and JavaScript.
-                        The selected candidate will build responsive and modern
-                        web applications while working with our development team.
-
-                    </p>
+<?php echo nl2br(htmlspecialchars($job['description'])); ?>
+</p>
 
                     <hr>
 
@@ -146,19 +151,19 @@
 
                     <ul>
 
-                        <li>HTML5</li>
+<?php
 
-                        <li>CSS3</li>
+$requirements = explode(",", $job['requirements']);
 
-                        <li>Bootstrap 5</li>
+foreach($requirements as $req){
 
-                        <li>JavaScript ES6</li>
+echo "<li>".htmlspecialchars(trim($req))."</li>";
 
-                        <li>Git & GitHub</li>
+}
 
-                        <li>Responsive Web Design</li>
+?>
 
-                    </ul>
+</ul>
 
                     <hr>
 
@@ -192,17 +197,17 @@
 
                     <hr>
 
-                    <p><strong>Company:</strong> Tech Solutions Pvt Ltd</p>
+                    <p><strong>Company:</strong> <?php echo htmlspecialchars($job['company']); ?></p>
 
-                    <p><strong>Location:</strong> Karachi, Pakistan</p>
+<p><strong>Location:</strong> <?php echo htmlspecialchars($job['location']); ?></p>
 
-                    <p><strong>Salary:</strong> $800 - $1200</p>
+<p><strong>Salary:</strong> <?php echo htmlspecialchars($job['salary']); ?></p>
 
-                    <p><strong>Experience:</strong> 1-2 Years</p>
+<p><strong>Category:</strong> <?php echo htmlspecialchars($job['category']); ?></p>
 
-                    <p><strong>Job Type:</strong> Full Time</p>
+<p><strong>Job Type:</strong> <?php echo htmlspecialchars($job['job_type']); ?></p>
 
-                    <p><strong>Deadline:</strong> August 30, 2026</p>
+<p><strong>Posted:</strong> <?php echo htmlspecialchars($job['created_at']); ?></p>
 
                     <button
                         class="btn btn-success w-100 mt-3"
