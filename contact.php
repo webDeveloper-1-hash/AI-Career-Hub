@@ -135,10 +135,7 @@ include 'include/head.php';
 
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="js/contact.js"></script>
-
-</body>
-
-</html>
+<?php
+include 'include/footer.php';
+?>

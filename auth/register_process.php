@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $check = mysqli_query($conn, "SELECT * FROM users WHERE email='$email'");
 
     if (mysqli_num_rows($check) > 0) {
-
+ 
         $_SESSION['error'] = "Email already exists!";
         header("Location: ../register.php");
         exit();

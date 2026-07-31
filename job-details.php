@@ -39,7 +39,7 @@ $job = mysqli_fetch_assoc($result);
 
         <div class="container">
 
-            <a class="navbar-brand fw-bold" href="index.html">
+            <a class="navbar-brand fw-bold" href="index.php">
                 AI Career Hub
             </a>
 
@@ -73,7 +73,7 @@ $job = mysqli_fetch_assoc($result);
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="logout.php">Logout</a>
+                        <a class="nav-link" href="auth/logout.php">Logout</a>
                     </li>
 
                     <li class="nav-item">

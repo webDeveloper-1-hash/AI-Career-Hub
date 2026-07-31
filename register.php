@@ -126,7 +126,7 @@ if(isset($_SESSION['error'])){
                                     placeholder="Enter your email"
                                     required>
 
-                            </div>
+                              </div>
 
                             <div class="mb-3">
 
