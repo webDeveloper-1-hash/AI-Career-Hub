@@ -209,29 +209,20 @@ echo "<li>".htmlspecialchars(trim($req))."</li>";
 
 <p><strong>Posted:</strong> <?php echo htmlspecialchars($job['created_at']); ?></p>
 
-                    <button
-                        class="btn btn-success w-100 mt-3"
-                        onclick="applyJob()">
-
-                        Apply Now
-
-                    </button>
-
-                    <button
-                        class="btn btn-outline-primary w-100 mt-2"
-                        onclick="saveJob()">
-
+                                        <a href="actions/apply_job.php?id=<?php echo $job['id']; ?>"
+                        class="btn btn-success w-100 mt-3">
+                            Apply Now
+                        </a>
+                        <a href="actions/save_job.php?id=<?php echo $job['id']; ?>"
+                        class="btn btn-outline-primary w-100 mt-2">
                         Save Job
+                        </a>
 
-                    </button>
-
-                    <button
-                        class="btn btn-danger w-100 mt-2"
-                        onclick="clearSavedJobs()">
-
-                        Clear Saved Jobs
-
-                    </button>
+                                            <a href="actions/clear_saved_jobs.php"
+                        class="btn btn-danger mt-2"
+                        onclick="return confirm('Are you sure you want to clear all saved jobs?');">
+                            Clear Saved Jobs
+                        </a>
 
                 </div>
 

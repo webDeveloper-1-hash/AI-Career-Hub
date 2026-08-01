@@ -103,6 +103,7 @@ if(isset($_SESSION['error'])){
 
                     <form action="auth/register_process.php" method="POST" id="registerForm">
                             <div class="mb-3">
+                                <label class="form-label">Full Name</label>
 
                                 
                               <input
@@ -127,6 +128,17 @@ if(isset($_SESSION['error'])){
                                     required>
 
                               </div>
+
+                              <div class="mb-3">
+                                <label class="form-label">Phone Number</label>
+
+                                <input
+                                    type="text"
+                                    name="phone"
+                                    class="form-control"
+                                    placeholder="Enter Phone Number"
+                                    required>
+                            </div>
 
                             <div class="mb-3">
 
