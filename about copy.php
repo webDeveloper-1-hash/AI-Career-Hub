@@ -1,9 +1,9 @@
 <?php
-include'include/head.php';
+include("include/head.php");
 ?>
     <!-- Navbar -->
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
 
         <div class="container">
 
@@ -15,7 +15,7 @@ include'include/head.php';
 
                 <span class="navbar-toggler-icon"></span>
 
-            </button>
+            </button> -->
 
             <!-- <div class="collapse navbar-collapse" id="menu">
 
@@ -44,10 +44,10 @@ include'include/head.php';
                 </ul>
 
             </div> -->
-
+<!-- 
         </div>
 
-    </nav>
+    </nav> -->
 
     <!-- Hero Section -->
 
@@ -374,12 +374,8 @@ include'include/head.php';
 
     <!-- Footer -->
 
-    <footer>
-
-        <p>© 2026 AI Career Hub | All Rights Reserved</p>
-
-    </footer>
+    
 
 <?php
-include 'include/footer.php';
+include("include/footer.php");
 ?>

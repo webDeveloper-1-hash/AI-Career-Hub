@@ -1,52 +1,24 @@
 <?php
-include 'include/head.php';
+include("include/head.php");
 ?>
 
+
+<?php
+
+
+if(isset($_SESSION['success'])){
+    echo '<div class="alert alert-success">'.$_SESSION['success'].'</div>';
+    unset($_SESSION['success']);
+}
+
+if(isset($_SESSION['error'])){
+    echo '<div class="alert alert-danger">'.$_SESSION['error'].'</div>';
+    unset($_SESSION['error']);
+}
+?>
     <!-- Navbar -->
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-
-        <div class="container">
-
-            <a class="navbar-brand fw-bold" href="index.html">
-                AI Career Hub
-            </a>
-
-            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- <div class="collapse navbar-collapse" id="menu">
-
-                <ul class="navbar-nav ms-auto">
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="jobs.html">Jobs</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" href="contact.html">Contact</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.html">Login</a>
-                    </li>
-
-                </ul>
-
-            </div> -->
-
-        </div>
-
-    </nav>
+   
 
     <!-- Hero -->
 
@@ -72,22 +44,38 @@ include 'include/head.php';
 
                 <div class="col-lg-7">
 
-                    <form id="contactForm" onsubmit="sendMessage(event)">
+                    <form action="auth/contact_process.php" method="POST">
 
-                        <input type="text" id="name" class="form-control mb-3" placeholder="Full Name">
+    <input type="text"
+           name="name"
+           class="form-control mb-3"
+           placeholder="Full Name"
+           required>
 
-                        <input type="email" id="email" class="form-control mb-3" placeholder="Email Address">
+    <input type="email"
+           name="email"
+           class="form-control mb-3"
+           placeholder="Email Address"
+           required>
 
-                        <input type="text" id="subject" class="form-control mb-3" placeholder="Subject">
+    <input type="text"
+           name="subject"
+           class="form-control mb-3"
+           placeholder="Subject"
+           required>
 
-                        <textarea id="message" rows="5" class="form-control mb-3" placeholder="Message"></textarea>
+    <textarea
+        name="message"
+        rows="5"
+        class="form-control mb-3"
+        placeholder="Message"
+        required></textarea>
 
-                        <button class="btn btn-primary w-100">
-                            Send Message
-                        </button>
+    <button type="submit" class="btn btn-primary w-100">
+        Send Message
+    </button>
 
-                    </form>
-
+</form>
                 </div>
 
                 <div class="col-lg-5">
@@ -129,13 +117,8 @@ include 'include/head.php';
 
     <!-- Footer -->
 
-    <footer>
-
-        <p>© 2026 AI Career Hub | All Rights Reserved</p>
-
-    </footer>
-
+ 
 
 <?php
-include 'include/footer.php';
+include('include/footer.php');
 ?>

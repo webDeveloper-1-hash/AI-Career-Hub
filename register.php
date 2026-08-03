@@ -1,27 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Register | AI Career Hub</title>
-
-    <!-- Bootstrap -->
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- CSS -->
-
-    <link rel="stylesheet" href="css/register.css">
-
-</head>
-
-<body>
 <?php
-session_start();
+include("include/head.php");
+?>
+<?php
+
 
 if(isset($_SESSION['success'])){
     echo "<div class='alert alert-success'>".$_SESSION['success']."</div>";
@@ -35,55 +16,7 @@ if(isset($_SESSION['error'])){
 ?>
     <!-- Navbar -->
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-
-        <div class="container">
-
-            <a class="navbar-brand fw-bold" href="index.php">
-                AI Career Hub
-            </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-
-                <span class="navbar-toggler-icon"></span>
-
-            </button>
-
-            <div class="collapse navbar-collapse" id="menu">
-
-                <ul class="navbar-nav ms-auto">
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php">Home</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="jobs.php">Jobs</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.php">About</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.php">Contact</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.php">Login</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" href="register.php">Register</a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-        </div>
-
-    </nav>
+    
 
     <!-- Register Section -->
 
@@ -250,10 +183,10 @@ if(isset($_SESSION['error'])){
 
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
+    
     <script src="js/register.js"></script>
 
-</body>
-
-</html>
+<?php
+include("include/footer.php");
+?>

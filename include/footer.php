@@ -1,15 +1,9 @@
+<footer class="bg-dark text-white text-center p-3 mt-5">
+    <p class="mb-0">© 2026 AI Career Hub | All Rights Reserved</p>
+</footer>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script src="js/about.js"></script>
-    <script src="js/contact.js"></script>
-    <script src="js/job-details.js"></script>
-    <script src="js/jobs.js"></script>
-    <script src="js/login.js"></script>
-    <script src="js/register.js"></script>
-    <script src="js/script.js"></script>
-
+<script src="js/script.js"></script>
 
 </body>
-
 </html>

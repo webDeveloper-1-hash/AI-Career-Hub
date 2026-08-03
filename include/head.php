@@ -1,20 +1,79 @@
+<?php
+if(session_status() == PHP_SESSION_NONE){
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | AI Career Hub</title>
+    <title>AI Career Hub</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/about.css">
-    <link rel="stylesheet" href="css/contact.css">
-    <link rel="stylesheet" href="css/index.php.css">
-    <link rel="stylesheet" href="css/job-details.css">
-    <link rel="stylesheet" href="css/jobs.css">
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/register.css">
-</head>
 
+    <link rel="stylesheet" href="css/style.css">
+</head>
 <body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+
+        <a class="navbar-brand fw-bold" href="index.php">
+            AI Career Hub
+        </a>
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="jobs.php">Jobs</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="about.php">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="auth/logout.php">logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin../edit_job.php">add</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.php">Contact</a>
+                </li>
+
+                <?php if(isset($_SESSION['user_id'])) { ?>
+
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-danger" href="auth/logout.php">Logout</a>
+                    </li>
+
+                <?php } else { ?>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.php"></a>
+                    </li>
+
+                <?php } ?>
+
+            </ul>
+
+        </div>
+
+    </div>
+</nav>

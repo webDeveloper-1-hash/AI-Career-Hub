@@ -1,26 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Job Details | AI Career Hub</title>
-
-    <!-- Bootstrap -->
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- CSS -->
-
-    <link rel="stylesheet" href="css/job-details.css">
-
-</head>
-
-<body>
 <?php
+
+
+
 include("config/connection.php");
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
@@ -33,6 +15,19 @@ if (!$result || mysqli_num_rows($result) == 0) {
 
 $job = mysqli_fetch_assoc($result);
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+    
+
     <!-- Navbar -->
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -234,24 +229,7 @@ echo "<li>".htmlspecialchars(trim($req))."</li>";
 
     <!-- Footer -->
 
-    <footer class="bg-dark text-white text-center p-3">
-
-        <p class="mb-0">
-
-            © 2026 AI Career Hub | All Rights Reserved
-
-        </p>
-
-    </footer>
-
-    <!-- Bootstrap JS -->
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- JavaScript -->
-
+    
     <script src="js/job-details.js"></script>
-
 </body>
-
 </html>

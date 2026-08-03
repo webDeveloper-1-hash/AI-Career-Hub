@@ -1,9 +1,9 @@
 <?php
-include'include/head.php';
+include("include/head.php");
 ?>
     <!-- Navbar -->
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
 
         <div class="container">
 
@@ -17,7 +17,7 @@ include'include/head.php';
 
             </button>
 
-            <!-- <div class="collapse navbar-collapse" id="menu">
+            <div class="collapse navbar-collapse" id="menu">
 
                 <ul class="navbar-nav ms-auto">
 
@@ -43,11 +43,11 @@ include'include/head.php';
 
                 </ul>
 
-            </div> -->
+            </div> 
 
         </div>
 
-    </nav>
+    </nav> -->
 
     <!-- Hero Section -->
 
@@ -381,5 +381,5 @@ include'include/head.php';
     </footer>
 
 <?php
-include 'include/footer.php';
+include("include/footer.php");
 ?>

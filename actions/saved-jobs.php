@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("config/connection.php");
+include("../config/connection.php");
 
 // Check Login
 if (!isset($_SESSION['user_id'])) {
@@ -53,11 +53,11 @@ AI Career Hub
 Dashboard
 </a>
 
-<a href="jobs.php" class="btn btn-warning me-2">
+<a href="../jobs.php" class="btn btn-warning me-2">
 Jobs
 </a>
 
-<a href="auth/logout.php" class="btn btn-danger">
+<a href="../auth/logout.php" class="btn btn-danger">
 Logout
 </a>
 
@@ -85,9 +85,7 @@ if(isset($_SESSION['error'])){
 
 ?>
 
-<a href="actions/clear_saved_jobs.php"
-class="btn btn-danger mb-4"
-onclick="return confirm('Clear all saved jobs?')">
+<a href="actions/clear_saved_jobs.php" class="btn btn-danger mb-4" onclick="return confirm('Clear all saved jobs?')">
 Clear Saved Jobs
 </a>
 

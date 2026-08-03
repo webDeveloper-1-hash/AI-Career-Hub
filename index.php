@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Career Hub</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
+<?php
+include("include/head.php");
+?>
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
         <a class="navbar-brand fw-bold" href="#">AI Career Hub</a>
 
@@ -24,14 +14,14 @@
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="jobs.php">Jobs</a></li>
-                <!-- <li class="nav-item"><a class="nav-link" href="#">Companies</a></li> -->
+                <li class="nav-item"><a class="nav-link" href="#">Companies</a></li>
                 <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="job-details.php">Jobs Details</a></li>
+                <li class="nav-item"><a class="nav-link" href="../job-details.php">Jobs Details</a></li>
             </ul>
         </div>
     </div>
-</nav>
+</nav> -->
 
 <!-- Hero -->
 <section class="hero">
@@ -137,17 +127,8 @@
 
 </section>
 
-<!-- Footer -->
 
-<footer class="bg-dark text-white text-center p-3 mt-5">
 
-<p>© 2026 AI Career Hub | All Rights Reserved</p>
-
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-
-<script src="js/script.js"></script>
-
-</body>
-</html>
+<?php
+include("include/footer.php");
+?>
