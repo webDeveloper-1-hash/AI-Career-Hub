@@ -32,33 +32,39 @@ if(session_status() == PHP_SESSION_NONE){
         </button>
 
         <div class="collapse navbar-collapse" id="menu">
-
+            
             <ul class="navbar-nav ms-auto">
-
+                
                 <li class="nav-item">
                     <a class="nav-link" href="index.php">Home</a>
                 </li>
-
+                
                 <li class="nav-item">
                     <a class="nav-link" href="jobs.php">Jobs</a>
                 </li>
-
+                
                 <li class="nav-item">
                     <a class="nav-link" href="about.php">About</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="auth/logout.php">logout</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="admin../edit_job.php">add</a>
-                </li>
-
+                
                 <li class="nav-item">
                     <a class="nav-link" href="contact.php">Contact</a>
                 </li>
-
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="admin/add_job.php">Add</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin/edit_job.php">Edit</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin/delete_job.php">Delete</a>
+                </li>
                 <?php if(isset($_SESSION['user_id'])) { ?>
-
+                
                     <li class="nav-item">
                         <a class="nav-link btn btn-danger" href="auth/logout.php">Logout</a>
                     </li>
