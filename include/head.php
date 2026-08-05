@@ -42,6 +42,12 @@ if(session_status() == PHP_SESSION_NONE){
                 <li class="nav-item">
                     <a class="nav-link" href="jobs.php">Jobs</a>
                 </li>
+                <li class="nav-item">
+    <a class="nav-link" href="admin/company.php">
+        Companies
+    </a>
+</li>
+
                 
                 <li class="nav-item">
                     <a class="nav-link" href="about.php">About</a>
